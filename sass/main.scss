@@ -1,0 +1,47 @@
+*{margin: 0; padding: 0; font-family: "Josefin Slab", serif;}
+
+//variables 
+$textcolor : #ff6b6b;  
+
+//mixin
+@mixin commoncode {
+    color: $textcolor; text-transform: capitalize;
+}
+
+@mixin headercode($bgcolor) {
+    width: 10% + 60% + 30%;  /// usnig operators 
+    height: 50vh - 10vh + 60vh;
+    background-color: $bgcolor;
+    color: $textcolor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    margin: 0 auto;
+}
+
+header{
+   @include headercode(#222f3e);
+    
+    h1 { @include commoncode;
+        &:hover{ color: #f368e0;}
+
+        &::after { content: " series ";}
+    }
+    // h1::after { content: " series";}  // using pesudo element
+
+    p{ @include commoncode;
+        &:hover{ color: #f368e0;}
+    }    // now we nested the h1 and p
+
+
+}
+
+// h1 { color: $textcolor;}
+// p{ color: $textcolor;}
+
+
+.secondheader{
+    @include headercode(#00d2d3);
+}
